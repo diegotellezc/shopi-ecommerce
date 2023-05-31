@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../../Components/Layout'
 
 const MyOrders = () => {
     return (
-        <div className='bg-red-100'>
-        MyOrders
-        </div>
+        <Layout>
+            MyOrders
+        </Layout>
     )
 }
 

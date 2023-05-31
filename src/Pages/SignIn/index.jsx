@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../../Components/Layout'
 
 const SignIn = () => {
     return (
-        <div className='bg-red-100'>
-        SignIn
-        </div>
+        <Layout>
+            SignIn
+        </Layout>
     )
 }
 
