@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
+import ProductDetail from '../../Components/ProductDetail'
 
 const Home = () => {
     const [items, setItems] = useState(null)
-    console.log(items)
 
     useEffect(() => {
         fetch('https://api.escuelajs.co/api/v1/products')
@@ -23,6 +23,8 @@ const Home = () => {
                     ))
                 }
             </div>
+
+            <ProductDetail />
             
         </Layout>
     )
