@@ -7,17 +7,21 @@ const Card = ({ data }) => {
   const context = useContext(ShoppingCartContext);
 
   const showProduct = (product) => {
-    context.closeCheckoutSideMenu()
+    context.closeCheckoutSideMenu();
     context.openProductDetail();
     context.setProductToShow(product);
   };
 
   const addProductsToCart = (event, productData) => {
-    event.stopPropagation()
+    event.stopPropagation();
     context.setCount(context.count + 1);
     context.setCartProducts([...context.cartProducts, productData]);
     context.openCheckoutSideMenu();
-    context.closeProductDetail()
+    context.setOpenNotification(true);
+    setTimeout(() => {
+      context.setOpenNotification(false);
+    }, 2000);
+    context.closeProductDetail();
   };
 
   return (

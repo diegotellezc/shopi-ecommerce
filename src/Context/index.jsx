@@ -35,6 +35,8 @@ export const ShoppingCartProvider = ({ children }) => {
     setIsCheckoutSideMenuOpen(false);
   };
 
+  const [openNotification, setOpenNotification] = useState(false);
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -51,6 +53,8 @@ export const ShoppingCartProvider = ({ children }) => {
         setCartProducts,
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
+        setOpenNotification,
+        openNotification,
       }}
     >
       {children}
