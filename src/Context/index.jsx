@@ -35,6 +35,7 @@ export const ShoppingCartProvider = ({ children }) => {
     setIsCheckoutSideMenuOpen(false);
   };
 
+  // Notification when add product to cart
   const [openNotification, setOpenNotification] = useState(false);
 
   return (
