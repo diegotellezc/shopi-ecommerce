@@ -9,6 +9,9 @@ export const ShoppingCartProvider = ({ children }) => {
   // Shopping Cart - Add products to cart
   const [cartProducts, setCartProducts] = useState([]);
 
+  // Shopping Cart - Order
+  const [order, setOrder] = useState([]);
+
   // Product Detail - Show product
   const [productToShow, setProductToShow] = useState({
     title: "",
@@ -56,6 +59,8 @@ export const ShoppingCartProvider = ({ children }) => {
         closeCheckoutSideMenu,
         setOpenNotification,
         openNotification,
+        order,
+        setOrder,
       }}
     >
       {children}
