@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { ShoppingCartContext } from "../../Context";
@@ -27,6 +28,8 @@ const CheckoutSideMenu = () => {
     context.setOrder([...context.order, orderToAdd]);
     context.setCartProducts([]);
     context.setCount(0);
+
+    context.closeCheckoutSideMenu();
   };
 
   return (
@@ -63,12 +66,14 @@ const CheckoutSideMenu = () => {
           </span>
         </p>
 
-        <button
-          className="bg-black py-3 w-full text-white rounded-lg"
-          onClick={() => handleCheckout()}
-        >
-          Checkout
-        </button>
+        <Link to="/my-orders/last">
+          <button
+            className="bg-black py-3 w-full text-white rounded-lg"
+            onClick={() => handleCheckout()}
+          >
+            Checkout
+          </button>
+        </Link>
       </div>
     </aside>
   );
