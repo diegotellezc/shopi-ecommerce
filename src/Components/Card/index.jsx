@@ -1,39 +1,39 @@
-import React from "react";
-import { useContext } from "react";
-import { PlusIcon, CheckIcon } from "@heroicons/react/24/solid";
-import { ShoppingCartContext } from "../../Context";
+import React from 'react'
+import { useContext } from 'react'
+import { PlusIcon, CheckIcon } from '@heroicons/react/24/solid'
+import { ShoppingCartContext } from '../../Context'
 
 const Card = ({ data }) => {
-  const context = useContext(ShoppingCartContext);
+  const context = useContext(ShoppingCartContext)
 
   const showProduct = (product) => {
-    context.closeCheckoutSideMenu();
-    context.openProductDetail();
-    context.setProductToShow(product);
-  };
+    context.closeCheckoutSideMenu()
+    context.openProductDetail()
+    context.setProductToShow(product)
+  }
 
   const addProductsToCart = (event, productData) => {
-    event.stopPropagation();
-    context.setCount(context.count + 1);
-    context.setCartProducts([...context.cartProducts, productData]);
-    context.openCheckoutSideMenu();
-    context.setOpenNotification(true);
+    event.stopPropagation()
+    context.setCount(context.count + 1)
+    context.setCartProducts([...context.cartProducts, productData])
+    context.openCheckoutSideMenu()
+    context.setOpenNotification(true)
     setTimeout(() => {
-      context.setOpenNotification(false);
-    }, 2000);
-    context.closeProductDetail();
-  };
+      context.setOpenNotification(false)
+    }, 2000)
+    context.closeProductDetail()
+  }
 
   const renderIcon = (id) => {
     const isInCart =
-      context.cartProducts.filter((product) => product.id === id).length > 0;
+      context.cartProducts.filter((product) => product.id === id).length > 0
 
     if (isInCart) {
       return (
         <button className="absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 p-1  bg-green-500">
           <CheckIcon className="h-6 w-6 text-black" />
         </button>
-      );
+      )
     } else {
       return (
         <button
@@ -42,9 +42,9 @@ const Card = ({ data }) => {
         >
           <PlusIcon className="h-6 w-6 text-black" />
         </button>
-      );
+      )
     }
-  };
+  }
 
   return (
     <div
@@ -68,7 +68,7 @@ const Card = ({ data }) => {
         <span className="text-lg font-medium">${data.price}</span>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
